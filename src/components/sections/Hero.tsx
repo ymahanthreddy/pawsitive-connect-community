@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Heart, Users, Sparkles, Star } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Heart, Users, Sparkles, Star, Play, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroPets from "@/assets/hero-pets.jpg";
+import { useRef } from "react";
 
 const stats = [
   { value: "50K+", label: "Pet Parents", icon: Users },
@@ -9,18 +10,30 @@ const stats = [
   { value: "5K+", label: "Daily Posts", icon: Star },
 ];
 
+const floatingPets = ["🐕", "🐈", "🐹", "🦜", "🐰"];
+
 export const Hero = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 paw-pattern">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 paw-pattern">
+      {/* Parallax Background Elements */}
+      <motion.div style={{ y, opacity }} className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/10 blur-3xl"
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/10 blur-3xl animate-blob"
           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
           transition={{ duration: 20, repeat: Infinity }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-secondary/10 blur-3xl"
+          className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-secondary/10 blur-3xl animate-blob"
+          style={{ animationDelay: "-2s" }}
           animate={{ scale: [1.2, 1, 1.2], rotate: [0, -90, 0] }}
           transition={{ duration: 20, repeat: Infinity }}
         />
@@ -29,6 +42,32 @@ export const Hero = () => {
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 15, repeat: Infinity }}
         />
+      </motion.div>
+
+      {/* Floating pet emojis */}
+      <div className="absolute inset-0 pointer-events-none">
+        {floatingPets.map((pet, index) => (
+          <motion.span
+            key={index}
+            className="absolute text-4xl opacity-20"
+            style={{
+              left: `${15 + index * 18}%`,
+              top: `${20 + (index % 3) * 25}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              rotate: [-10, 10, -10],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 4 + index,
+              repeat: Infinity,
+              delay: index * 0.5,
+            }}
+          >
+            {pet}
+          </motion.span>
+        ))}
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -77,12 +116,13 @@ export const Hero = () => {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button variant="hero" size="xl">
+              <Button variant="hero" size="xl" className="group">
                 Join the Community
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="glass" size="xl">
-                Explore Features
+              <Button variant="glass" size="xl" className="group">
+                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Watch Demo
               </Button>
             </motion.div>
 
@@ -174,6 +214,15 @@ export const Hero = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <ChevronDown className="w-8 h-8 text-muted-foreground" />
+        </motion.div>
       </div>
     </section>
   );
