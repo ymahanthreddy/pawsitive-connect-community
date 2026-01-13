@@ -21,6 +21,7 @@ export default {
       fontFamily: {
         display: ["Quicksand", "system-ui", "sans-serif"],
         body: ["Nunito", "system-ui", "sans-serif"],
+        mono: ["Space Grotesk", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
