@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, PawPrint, MessageCircle, Users, Calendar, Sparkles, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { name: "Community", href: "#community", icon: Users },
@@ -36,25 +37,23 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <motion.a
-            href="#"
-            className="flex items-center gap-2 group"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="relative">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glow">
-                <PawPrint className="w-5 h-5 text-primary-foreground" />
+          <motion.div whileHover={{ scale: 1.02 }}>
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="relative">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glow">
+                  <PawPrint className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <motion.div
+                  className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
               </div>
-              <motion.div
-                className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">
-              Paw<span className="text-primary">Connect</span>
-            </span>
-          </motion.a>
+              <span className="font-display font-bold text-xl text-foreground">
+                Pawsitive<span className="text-primary">Community</span>
+              </span>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
@@ -76,11 +75,11 @@ export const Navbar = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Button variant="ghost" size="sm">
-              Sign In
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/auth">Sign In</Link>
             </Button>
-            <Button variant="hero" size="sm">
-              Join Community
+            <Button variant="hero" size="sm" asChild>
+              <Link to="/join">Join Community</Link>
             </Button>
           </div>
 
@@ -122,11 +121,11 @@ export const Navbar = () => {
                   <div className="flex justify-center mb-4">
                     <ThemeToggle />
                   </div>
-                  <Button variant="outline" className="w-full">
-                    Sign In
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link to="/auth" onClick={() => setIsOpen(false)}>Sign In</Link>
                   </Button>
-                  <Button variant="hero" className="w-full">
-                    Join Community
+                  <Button variant="hero" className="w-full" asChild>
+                    <Link to="/join" onClick={() => setIsOpen(false)}>Join Community</Link>
                   </Button>
                 </div>
               </div>

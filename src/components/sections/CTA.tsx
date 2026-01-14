@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { PawPrint, ArrowRight, Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const CTA = () => {
   return (
@@ -54,16 +55,20 @@ export const CTA = () => {
             <Button
               size="xl"
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-float hover:-translate-y-1 transition-all"
+              asChild
             >
-              Get Started Free
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <Link to="/get-started">
+                Get Started Free
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
             </Button>
             <Button
               variant="outline"
               size="xl"
               className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground/10"
+              asChild
             >
-              Watch Demo
+              <Link to="/demo">Watch Demo</Link>
             </Button>
           </div>
 

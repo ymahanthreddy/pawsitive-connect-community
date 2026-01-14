@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, ArrowRight, MessageSquare, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const groups = [
   {
@@ -120,9 +121,12 @@ export const Groups = () => {
                 variant="ghost"
                 size="sm"
                 className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                asChild
               >
-                Join Group
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <Link to="/groups">
+                  Join Group
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
             </motion.div>
           ))}
@@ -134,8 +138,8 @@ export const Groups = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button variant="hero" size="lg">
-            Explore All Groups
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/groups">Explore All Groups</Link>
           </Button>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, MessageCircle, Share2, Bookmark, MoreHorizontal, Image, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Link } from "react-router-dom";
 import petDog1 from "@/assets/pet-dog-1.jpg";
 import petCat1 from "@/assets/pet-cat-1.jpg";
 import petDog2 from "@/assets/pet-dog-2.jpg";
@@ -230,8 +231,8 @@ export const CommunityFeed = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button variant="outline" size="lg">
-            View All Posts
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/posts">View All Posts</Link>
           </Button>
         </motion.div>
       </div>
