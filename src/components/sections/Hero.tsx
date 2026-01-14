@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Heart, Users, Sparkles, Star, Play, ChevronDown, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroPets from "@/assets/hero-pets.jpg";
 import { useRef } from "react";
 
@@ -163,15 +164,19 @@ export const Hero = () => {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button variant="hero" size="xl" className="group relative overflow-hidden shadow-glow">
-                <span className="relative z-10 flex items-center">
-                  Join the Community
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
+              <Button variant="hero" size="xl" className="group relative overflow-hidden shadow-glow" asChild>
+                <Link to="/join">
+                  <span className="relative z-10 flex items-center">
+                    Join the Community
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </Link>
               </Button>
-              <Button variant="glass" size="xl" className="group backdrop-blur-xl">
-                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                Watch Demo
+              <Button variant="glass" size="xl" className="group backdrop-blur-xl" asChild>
+                <Link to="/demo">
+                  <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                  Watch Demo
+                </Link>
               </Button>
             </motion.div>
 

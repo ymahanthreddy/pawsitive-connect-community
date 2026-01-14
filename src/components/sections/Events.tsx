@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Users, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const events = [
   {
@@ -127,8 +128,8 @@ export const Events = () => {
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-border">
-                  <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                    RSVP Now
+                  <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
+                    <Link to="/events">RSVP Now</Link>
                   </Button>
                 </div>
               </div>
@@ -142,9 +143,11 @@ export const Events = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button variant="outline" size="lg">
-            View All Events
-            <ArrowRight className="w-4 h-4 ml-2" />
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/events">
+              View All Events
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
           </Button>
         </motion.div>
       </div>

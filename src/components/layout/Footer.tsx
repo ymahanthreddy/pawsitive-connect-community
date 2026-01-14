@@ -1,11 +1,31 @@
 import { motion } from "framer-motion";
 import { PawPrint, Heart, Mail, Twitter, Instagram, Facebook, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
-  Product: ["Features", "Pricing", "Mobile App", "API"],
-  Community: ["Groups", "Events", "Pet of the Week", "Blog"],
-  Company: ["About Us", "Careers", "Press", "Contact"],
-  Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+  Product: [
+    { label: "Features", href: "/#community" },
+    { label: "Pricing", href: "/get-started" },
+    { label: "Mobile App", href: "/get-started" },
+    { label: "API", href: "/get-started" },
+  ],
+  Community: [
+    { label: "Groups", href: "/groups" },
+    { label: "Events", href: "/events" },
+    { label: "Pet of the Week", href: "/submit-pet" },
+    { label: "Blog", href: "/posts" },
+  ],
+  Company: [
+    { label: "About Us", href: "/get-started" },
+    { label: "Careers", href: "/get-started" },
+    { label: "Press", href: "/get-started" },
+    { label: "Contact", href: "/get-started" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/get-started" },
+    { label: "Terms of Service", href: "/get-started" },
+    { label: "Cookie Policy", href: "/get-started" },
+  ],
 };
 
 const socialLinks = [
@@ -22,18 +42,16 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <motion.a
-              href="#"
-              className="flex items-center gap-2 mb-4"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <PawPrint className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">
-                Paw<span className="text-primary">Connect</span>
-              </span>
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <Link to="/" className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                  <PawPrint className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <span className="font-display font-bold text-xl text-foreground">
+                  Pawsitive<span className="text-primary">Community</span>
+                </span>
+              </Link>
+            </motion.div>
             <p className="text-muted-foreground mb-6 max-w-xs">
               The digital town square for pet parents. Connect, share, and grow together.
             </p>
@@ -60,13 +78,13 @@ export const Footer = () => {
               <h4 className="font-display font-bold text-foreground mb-4">{title}</h4>
               <ul className="space-y-2">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      to={link.href}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -96,7 +114,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2026 PawConnect. All rights reserved.
+            © 2026 Pawsitive Community. All rights reserved.
           </p>
         </div>
       </div>

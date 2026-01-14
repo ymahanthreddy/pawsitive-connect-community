@@ -10,6 +10,7 @@ import {
   Bell,
   ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -18,6 +19,7 @@ const features = [
     description: "Share moments, ask questions, and connect with pet parents worldwide.",
     gradient: "from-primary via-primary to-accent",
     bgGradient: "from-primary/10 to-accent/10",
+    link: "/posts",
   },
   {
     icon: Sparkles,
@@ -25,6 +27,7 @@ const features = [
     description: "Get instant, AI-powered advice for pet care, health tips, and training.",
     gradient: "from-secondary via-secondary to-nature-green",
     bgGradient: "from-secondary/10 to-nature-green/10",
+    link: "/get-started",
   },
   {
     icon: MapPin,
@@ -32,6 +35,7 @@ const features = [
     description: "Find pet-friendly places, vets, groomers, and parks near you.",
     gradient: "from-nature-green via-nature-green to-secondary",
     bgGradient: "from-nature-green/10 to-secondary/10",
+    link: "/services",
   },
   {
     icon: Calendar,
@@ -39,6 +43,7 @@ const features = [
     description: "Discover and organize pet playdates, adoption events, and meetups.",
     gradient: "from-accent via-accent to-sunset-orange",
     bgGradient: "from-accent/10 to-sunset-orange/10",
+    link: "/events",
   },
   {
     icon: Trophy,
@@ -46,6 +51,7 @@ const features = [
     description: "Showcase your furry friend and vote for the cutest pets.",
     gradient: "from-sunset-orange via-sunset-orange to-paw-pink",
     bgGradient: "from-sunset-orange/10 to-paw-pink/10",
+    link: "/submit-pet",
   },
   {
     icon: Users,
@@ -53,6 +59,7 @@ const features = [
     description: "Join breed-specific groups, training clubs, and special interest communities.",
     gradient: "from-pet-purple via-pet-purple to-paw-pink",
     bgGradient: "from-pet-purple/10 to-paw-pink/10",
+    link: "/groups",
   },
   {
     icon: Heart,
@@ -60,6 +67,7 @@ const features = [
     description: "Create detailed profiles for your pets with photos, health records, and milestones.",
     gradient: "from-paw-pink via-paw-pink to-primary",
     bgGradient: "from-paw-pink/10 to-primary/10",
+    link: "/get-started",
   },
   {
     icon: Bell,
@@ -67,6 +75,7 @@ const features = [
     description: "Get reminders for vet appointments, vaccinations, and community events.",
     gradient: "from-sky-blue via-sky-blue to-secondary",
     bgGradient: "from-sky-blue/10 to-secondary/10",
+    link: "/get-started",
   },
 ];
 
@@ -181,43 +190,45 @@ export const Features = () => {
               whileHover={{ y: -12, scale: 1.02 }}
               className="group cursor-pointer"
             >
-              <div className={`h-full glass-card-premium rounded-3xl p-7 transition-all duration-500 hover:shadow-glow relative overflow-hidden`}>
-                {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                
-                {/* Icon */}
-                <motion.div 
-                  className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}
-                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <feature.icon className="w-8 h-8 text-primary-foreground" />
+              <Link to={feature.link}>
+                <div className={`h-full glass-card-premium rounded-3xl p-7 transition-all duration-500 hover:shadow-glow relative overflow-hidden`}>
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                   
-                  {/* Glow effect */}
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
-                </motion.div>
-                
-                {/* Content */}
-                <h3 className="relative text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="relative text-muted-foreground text-sm leading-relaxed mb-4">
-                  {feature.description}
-                </p>
-                
-                {/* Learn more link */}
-                <motion.div 
-                  className="relative flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  initial={{ x: -10 }}
-                  whileHover={{ x: 0 }}
-                >
-                  <span>Learn more</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </motion.div>
-                
-                {/* Corner decoration */}
-                <div className={`absolute -top-10 -right-10 w-20 h-20 rounded-full bg-gradient-to-br ${feature.gradient} opacity-10 group-hover:opacity-20 transition-opacity blur-2xl`} />
-              </div>
+                  {/* Icon */}
+                  <motion.div 
+                    className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 shadow-lg`}
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <feature.icon className="w-8 h-8 text-primary-foreground" />
+                    
+                    {/* Glow effect */}
+                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
+                  </motion.div>
+                  
+                  {/* Content */}
+                  <h3 className="relative text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="relative text-muted-foreground text-sm leading-relaxed mb-4">
+                    {feature.description}
+                  </p>
+                  
+                  {/* Learn more link */}
+                  <motion.div 
+                    className="relative flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    initial={{ x: -10 }}
+                    whileHover={{ x: 0 }}
+                  >
+                    <span>Learn more</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.div>
+                  
+                  {/* Corner decoration */}
+                  <div className={`absolute -top-10 -right-10 w-20 h-20 rounded-full bg-gradient-to-br ${feature.gradient} opacity-10 group-hover:opacity-20 transition-opacity blur-2xl`} />
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

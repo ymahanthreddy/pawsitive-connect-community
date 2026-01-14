@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Star, Clock, Phone, Stethoscope, Scissors, Home, ShoppingBag, Dumbbell, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const serviceCategories = [
   { icon: Stethoscope, label: "Veterinarians", count: 234, color: "from-secondary to-nature-green" },
@@ -202,9 +203,11 @@ export const Services = () => {
               </motion.div>
             ))}
 
-            <Button variant="outline" className="w-full mt-4">
-              <MapPin className="w-4 h-4 mr-2" />
-              Explore All Services
+            <Button variant="outline" className="w-full mt-4" asChild>
+              <Link to="/services">
+                <MapPin className="w-4 h-4 mr-2" />
+                Explore All Services
+              </Link>
             </Button>
           </motion.div>
         </div>

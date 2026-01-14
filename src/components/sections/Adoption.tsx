@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Heart, MapPin, Calendar, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 
 const adoptablePets = [
   {
@@ -160,9 +161,11 @@ export const Adoption = () => {
                     ))}
                   </div>
 
-                  <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                  <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all" asChild>
+                    <Link to="/adoption">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -176,10 +179,12 @@ export const Adoption = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <Button variant="hero" size="lg">
-            <Sparkles className="w-5 h-5 mr-2" />
-            View All Adoptable Pets
-            <ArrowRight className="w-5 h-5 ml-2" />
+          <Button variant="hero" size="lg" asChild>
+            <Link to="/adoption">
+              <Sparkles className="w-5 h-5 mr-2" />
+              View All Adoptable Pets
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
           </Button>
         </motion.div>
       </div>

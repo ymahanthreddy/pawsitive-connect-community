@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Trophy, Heart, Star, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import petDog1 from "@/assets/pet-dog-1.jpg";
 import petCat1 from "@/assets/pet-cat-1.jpg";
 import petDog2 from "@/assets/pet-dog-2.jpg";
@@ -179,8 +180,8 @@ export const PetOfWeek = () => {
             ))}
 
             <div className="pt-6">
-              <Button variant="hero" className="w-full">
-                Submit Your Pet
+              <Button variant="hero" className="w-full" asChild>
+                <Link to="/submit-pet">Submit Your Pet</Link>
               </Button>
               <p className="text-center text-sm text-muted-foreground mt-3">
                 New voting round starts every Monday!
