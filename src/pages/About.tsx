@@ -3,26 +3,32 @@ import { PawPrint, Users, Sparkles, ShieldCheck } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-/* ================= TEAM DATA ================= 
-   To use real photos, add images to src/assets/team/ and import them:
-   import member1 from "@/assets/team/member1.jpg";
-   Then replace the photo URLs below with the imported variables.
+/* ================= TEAM IMAGES =================
+   Put images here:
+   src/assets/team/member1.jpg
+   src/assets/team/member2.jpg
+   src/assets/team/member3.jpg
 ================================================ */
+import member1 from "@/assets/team/member1.jpg";
+import member2 from "@/assets/team/member2.jpg";
+import member3 from "@/assets/team/member3.jpg";
+
+/* ================= TEAM DATA ================= */
 const TEAM = [
   {
     name: "Naman Gupta",
     grade: "Grade 11",
-    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Naman",
+    photo: member1,
   },
   {
     name: "Mahanth Reddy",
     grade: "Grade 8",
-    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Mahanth",
+    photo: member2,
   },
   {
     name: "Dhruva Mandavilli",
     grade: "Grade 10",
-    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dhruva",
+    photo: member3,
   },
 ];
 
