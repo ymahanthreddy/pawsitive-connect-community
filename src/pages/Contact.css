@@ -1,0 +1,35 @@
+/* CONTACT PAGE ENHANCEMENTS */
+
+/* Card glow on hover */
+.contact-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Inputs */
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--background);
+  border: 1px solid hsl(var(--border));
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* Textarea resize control */
+.contact-textarea {
+  resize: none;
+}
