@@ -14,7 +14,14 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/layout/Footer";
 import { ChatWidget } from "@/components/chat/ChatWidget";
-
+import { PetQuiz } from "@/components/sections/PetQuiz";
+import { LiveActivity } from "@/components/sections/LiveActivity";
+import { Gamification } from "@/components/sections/Gamification";
+import { EmergencyVet } from "@/components/sections/EmergencyVet";
+import { PetHealthTracker } from "@/components/sections/PetHealthTracker";
+import { Accessibility } from "@/components/sections/Accessibility";
+import { AIPetNameGenerator } from "@/components/sections/AIPetNameGenerator";
+import { SocialSharing } from "@/components/sections/SocialSharing";
 
 const Index = () => {
   return (
@@ -23,8 +30,8 @@ const Index = () => {
       <main>
         <Hero />
         <PartnersMarquee />
+        <LiveActivity />
 
-        {/* ⬅️ ADDED: FEATURES INTRO (ONLY ADDITION) */}
         <section className="container mx-auto px-4 md:px-6 py-16 text-center">
           <h2 className="text-2xl md:text-3xl font-display font-bold mb-4">
             Everything Pet Parents Need — In One Place
@@ -35,17 +42,23 @@ const Index = () => {
             journey.
           </p>
         </section>
-        {/* ⬅️ END ADDITION */}
 
         <Features />
+        <PetQuiz />
         <Statistics />
         <CommunityFeed />
         <AIAssistant />
+        <AIPetNameGenerator />
+        <PetHealthTracker />
+        <Gamification />
         <PetOfWeek />
         <Adoption />
+        <EmergencyVet />
         <Services />
         <Events />
         <Groups />
+        <SocialSharing />
+        <Accessibility />
         <Testimonials />
         <CTA />
       </main>
