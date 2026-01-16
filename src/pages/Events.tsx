@@ -249,8 +249,9 @@ const Events = () => {
                     </div>
                   </div>
 
-                  <Button variant="outline" className="w-full">
-                    RSVP Now
+                  {/* ✅ ONLY CHANGE HERE */}
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link to="/auth">RSVP Now</Link>
                   </Button>
                 </div>
               </motion.div>
