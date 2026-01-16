@@ -67,6 +67,67 @@ const PETS = [
     description:
       "Coco is gentle, calm, and loves carrots and cuddles.",
   },
+  {
+  id: "nala",
+  name: "Nala",
+  breed: "Siamese Cat",
+  age: "1 year",
+  location: "Chandigarh",
+  icon: "🐈",
+  description:
+    "Nala is a gentle and curious Siamese cat who enjoys quiet spaces and human companionship.",
+},
+{
+  id: "snowy",
+  name: "Snowy",
+  breed: "White Rabbit",
+  age: "7 months",
+  location: "Jaipur",
+  icon: "🐰",
+  description:
+    "Snowy is playful and energetic, loves hopping around and enjoys fresh vegetables and gentle care.",
+},
+{
+  id: "bruno",
+  name: "Bruno",
+  breed: "Rottweiler",
+  age: "5 years",
+  location: "Indore",
+  icon: "🐕‍🦺",
+  description:
+    "Bruno is loyal, calm, and well-trained, making him a great companion for experienced owners.",
+},
+{
+  id: "oreo",
+  name: "Oreo",
+  breed: "Tuxedo Cat",
+  age: "2 years",
+  location: "Bangalore",
+  icon: "🐈‍⬛",
+  description:
+    "Oreo is playful and affectionate, loves interactive toys and being around people.",
+},
+{
+  id: "max",
+  name: "Max",
+  breed: "Doberman",
+  age: "3 years",
+  location: "Noida",
+  icon: "🐕",
+  description:
+    "Max is energetic and alert, ideal for active families looking for a loyal companion.",
+},
+{
+  id: "bella-dog",
+  name: "Bella",
+  breed: "Beagle",
+  age: "1.5 years",
+  location: "Kochi",
+  icon: "🐶",
+  description:
+    "Bella is friendly and curious, loves outdoor walks and social interaction.",
+},
+
 ];
 
 const PetDetail = () => {
@@ -139,3 +200,4 @@ const PetDetail = () => {
 };
 
 export default PetDetail;
+
