@@ -118,7 +118,7 @@ const PETS = [
     "Max is energetic and alert, ideal for active families looking for a loyal companion.",
 },
 {
-  id: "bella-dog",
+  id: "bella",
   name: "Bella",
   breed: "Beagle",
   age: "1.5 years",
@@ -200,4 +200,5 @@ const PetDetail = () => {
 };
 
 export default PetDetail;
+
 
