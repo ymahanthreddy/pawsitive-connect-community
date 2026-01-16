@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { AlertCircle, Phone, MapPin, Clock, Navigation, Star, ExternalLink } from "lucide-react";
+import {
+  AlertCircle,
+  Phone,
+  MapPin,
+  Clock,
+  Navigation,
+  Star,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const emergencyVets = [
   {
@@ -51,7 +59,6 @@ export const EmergencyVet = () => {
 
   const handleLocate = () => {
     setLocating(true);
-    // Simulate geolocation
     setTimeout(() => setLocating(false), 1500);
   };
 
@@ -88,29 +95,33 @@ export const EmergencyVet = () => {
           >
             <div className="glass-card-premium rounded-3xl p-6 mb-6">
               <h3 className="text-lg font-display font-bold mb-4">Quick Actions</h3>
-              
+
+              {/* 🔁 REDIRECT TO SERVICES */}
               <Button
                 variant="hero"
                 className="w-full mb-4 bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600"
                 onClick={handleLocate}
                 disabled={locating}
+                asChild
               >
-                {locating ? (
-                  <>
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    >
-                      <Navigation className="w-5 h-5 mr-2" />
-                    </motion.div>
-                    Locating...
-                  </>
-                ) : (
-                  <>
-                    <MapPin className="w-5 h-5 mr-2" />
-                    Find Nearest Vet
-                  </>
-                )}
+                <Link to="/services">
+                  {locating ? (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                      >
+                        <Navigation className="w-5 h-5 mr-2" />
+                      </motion.div>
+                      Locating...
+                    </>
+                  ) : (
+                    <>
+                      <MapPin className="w-5 h-5 mr-2" />
+                      Find Nearest Vet
+                    </>
+                  )}
+                </Link>
               </Button>
 
               <Button variant="outline" className="w-full" asChild>
@@ -207,9 +218,13 @@ export const EmergencyVet = () => {
                           Call
                         </a>
                       </Button>
-                      <Button size="sm" variant="glass" className="flex-1">
-                        <Navigation className="w-4 h-4 mr-1" />
-                        Directions
+
+                      {/* 🔁 REDIRECT TO SERVICES */}
+                      <Button size="sm" variant="glass" className="flex-1" asChild>
+                        <Link to="/services">
+                          <Navigation className="w-4 h-4 mr-1" />
+                          Directions
+                        </Link>
                       </Button>
                     </div>
                   </div>
