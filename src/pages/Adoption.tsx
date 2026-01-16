@@ -120,17 +120,6 @@ const Adoption = () => {
                       Learn More
                     </Link>
                   </Button>
-                  <Button
-                      asChild
-                      variant="ghost"
-                      size="sm"
-                      className="w-full mt-2 text-primary"
-                  >
-                     <Link to="/adoption/details">
-                     Learn More About Adoption Process
-                     </Link>
-                  </Button>
-
                 </div>
               </motion.div>
             ))}
